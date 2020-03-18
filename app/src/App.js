@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router, NavLink, Route} from 'react-router-dom';
 
 //Komponent - Home
 const Home = () => <h1>Strona startowa</h1>;
@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
     <div>
-      <heder>
+      <header>
         <nav>
           <ul>
             {/*
@@ -23,14 +23,20 @@ function App() {
             <li><a href="/news">news</a></li>
             <li><a href="/contact">contact</a></li>
             */}
-            <li><Link to="/">start</Link></li>
-            <li><Link to="/news">news</Link></li>
-            <li><Link to="/contact">contact</Link></li>
+            <li>
+              <NavLink activeClassName="selected_home" exact to="/">start</NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="selected_news" to="/news">news</NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="selected_contact" to="/contact">contact</NavLink>
+            </li>
             
 
           </ul>
         </nav>
-      </heder>
+      </header>
       <section>
         <Route path="/" exact component={Home}/>
         <Route path="/news" component={News}/>

@@ -28,7 +28,16 @@ a{
 
 a:hover{
   color: yellow;
-  border-bottom:  4px solid yellow;
+}
+
+.selected_home{
+  border-bottom-color: tomato;
+}
+.selected_news{
+  border-bottom-color: thistle;
+}
+.selected_contact{
+  border-bottom-color: wheat;
 }
 
 section{
