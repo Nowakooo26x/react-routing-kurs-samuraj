@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
 //Komponent - Home
 const Home = () => <h1>Strona startowa</h1>;
@@ -13,7 +13,7 @@ const Contact = () => <h1>Strona contact</h1>;
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
     <div>
       <heder>
         <nav>
@@ -32,12 +32,12 @@ function App() {
         </nav>
       </heder>
       <section>
-        <Home/>
-        <News/>
-        <Contact/>
+        <Route path="/" component={Home}/>
+        <Route path="/news" component={News}/>
+        <Route path="/contact" component={Contact}/>
       </section>
     </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
