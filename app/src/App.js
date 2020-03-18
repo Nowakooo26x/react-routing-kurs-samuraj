@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, NavLink, Route} from 'react-router-dom';
+import {BrowserRouter as Router, NavLink, Route, Switch} from 'react-router-dom';
 
 //Komponent - Home
 const Home = () => <h1>Strona startowa</h1>;
@@ -8,7 +8,8 @@ const Home = () => <h1>Strona startowa</h1>;
 const News = () => <h1>Strona news</h1>;
 //Komponent - Contact
 const Contact = () => <h1>Strona contact</h1>;
-
+//Komponent - Error
+const Error = () => <h1>Błąd zły adress</h1>;
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
             <li><a href="/contact">contact</a></li>
             */}
             <li>
-              <NavLink activeClassName="selected_home" exact to="/">start</NavLink>
+              <NavLink activeStyle={{color: '#ffa'}} activeClassName="selected_home" exact to="/">start</NavLink>
             </li>
             <li>
               <NavLink activeClassName="selected_news" to="/news">news</NavLink>
@@ -38,9 +39,12 @@ function App() {
         </nav>
       </header>
       <section>
-        <Route path="/" exact component={Home}/>
-        <Route path="/news" component={News}/>
-        <Route path="/contact" component={Contact}/>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/news" component={News}/>
+          <Route path="/contact" component={Contact}/>
+          <Route component={Error}/>
+        </Switch>
       </section>
     </div>
     </Router>
